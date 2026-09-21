@@ -1,0 +1,128 @@
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.js .d {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.js [data-reveal="up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s var(--ease) var(--d, 0s), transform 0.9s var(--ease) var(--d, 0s);
+}
+
+.js [data-reveal="up"].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.js [data-reveal="mask"] > img,
+.js [data-reveal="mask"] > .arch--photo {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.2s var(--ease) var(--d, 0s);
+}
+
+.js [data-reveal="mask"].is-in > img,
+.js [data-reveal="mask"].is-in > .arch--photo {
+  clip-path: inset(0);
+}
+
+.js [data-reveal="mask"] > .arch--outline,
+.js [data-reveal="mask"] > .hero__caption {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease) calc(var(--d, 0s) + 0.7s);
+}
+
+.js [data-reveal="mask"].is-in > .arch--outline,
+.js [data-reveal="mask"].is-in > .hero__caption {
+  opacity: 1;
+}
+
+.js .line > span {
+  transform: translateY(112%);
+}
+
+.js.is-ready .line > span {
+  animation: rise 1.05s var(--ease) both;
+}
+
+.js.is-ready .line:nth-child(1) > span {
+  animation-delay: 0.1s;
+}
+
+.js.is-ready .line:nth-child(2) > span {
+  animation-delay: 0.24s;
+}
+
+.js.is-ready .line:nth-child(3) > span {
+  animation-delay: 0.38s;
+}
+
+.js.is-ready .skyline .d {
+  animation: draw 2.6s var(--ease) forwards;
+  animation-delay: calc(0.5s + var(--i, 0) * 0.1s);
+}
+
+.js .card.is-in .d {
+  animation: draw 1.1s var(--ease) forwards;
+  animation-delay: calc(0.5s + var(--i, 0) * 0.16s);
+}
+
+.js .step--done:not([hidden]) .d {
+  animation: draw 1.4s var(--ease) 0.15s forwards;
+}
+
+.js .step--done:not([hidden]) .d--gold {
+  animation-delay: 1.3s;
+  animation-duration: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal="up"],
+  .js [data-reveal="up"].is-in,
+  .js [data-reveal="mask"] > *,
+  .js [data-reveal="mask"].is-in > * {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  .js .line > span {
+    transform: none;
+    animation: none;
+  }
+
+  .js .d {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .js .steps3::after {
+    transform: none;
+    transition: none;
+  }
+
+  .card,
+  .card__media img,
+  .path__media img {
+    transition: none;
+  }
+}

@@ -662,6 +662,46 @@
   margin-top: 12px;
 }
 
+.host__credentials {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  max-width: 520px;
+}
+
+.host__credentials li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.host__credentials li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.host__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+}
+
+.host__links .textlink {
+  margin-top: 0;
+}
+
 .host__video figcaption {
   margin-top: 14px;
   text-align: center;
@@ -777,23 +817,58 @@
   color: var(--gold-bright);
 }
 
-.join__skip {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(251, 248, 243, 0.18);
-  font-size: 0.92rem;
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
 
-.join__skip a {
-  margin-left: 4px;
-  border-bottom: 1px solid var(--gold-bright);
+.quote {
+  padding: 40px 36px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.quote__mark {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.quote blockquote {
+  margin: 0 0 22px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.quote figcaption strong {
+  font-size: 0.95rem;
+  color: var(--plum);
+}
+
+.quote figcaption span {
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--gold-ink);
+  text-transform: uppercase;
   font-weight: 600;
-  color: var(--ivory);
-  transition: color 0.25s var(--ease);
 }
 
-.join__skip a:hover {
-  color: var(--gold-bright);
+.quotes__note {
+  margin-top: 32px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
 }
 
 .final {
@@ -913,6 +988,10 @@
     gap: 56px;
   }
 
+  .quotes {
+    grid-template-columns: 1fr;
+  }
+
   .steps3 {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -973,6 +1052,10 @@
 @media (max-width: 640px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .quote {
+    padding: 32px 26px;
   }
 
   .hero__title {

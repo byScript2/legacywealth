@@ -11,6 +11,7 @@ const tokens: Record<string, string> = {
   TEL_2_HREF: cfg.TEL_2.replace(/\s/g, ""),
   WEB_LINK: cfg.WEB_LINK,
   WHATSAPP_LINK: cfg.WHATSAPP_GROUP_LINK.replace(/&/g, "&amp;"),
+  INSTAGRAM_LINK: cfg.INSTAGRAM_LINK,
 };
 
 const injectConfig = (): Plugin => ({

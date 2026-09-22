@@ -10,7 +10,7 @@ One-page static promo site for a free online business community (property and on
 - No code comments. Explain wiring in chat.
 - Must not read as AI-generated. Editorial, hand-crafted, specific to this brand.
 - UK audience: British English (monetise, programme), GBP, `lang="en-GB"`.
-- No invented facts: no fake testimonials, member counts, income figures or dates.
+- No invented facts: no fake testimonials, member counts, income figures or dates. Real testimonials and the host's own credentials/income figures are fine once the client supplies them, but nothing is invented on our side.
 - No income guarantees. Disclaimer stays in the footer.
 - Brand name is "Legacy Wealth Academy" everywhere. Never mention "Legacy Wealth Property" or a parent company on the site (background context only; the logo was edited to say ACADEMY).
 - Full UX by default: validation, loading, error and success states, keyboard and screen-reader support, mobile first.
@@ -24,8 +24,8 @@ One-page static promo site for a free online business community (property and on
 - Not its own git repo yet. The enclosing git root is `/Users/user`, so run `git init` here before any commit.
 
 ## Files
-- `config.ts`: single source for `WHATSAPP_GROUP_LINK`, `WEB_LINK`, `TUTOR_NAME`, `EMAIL`, `TEL`, `TEL_2`, `BRAND_NAME`, `WEB3FORM_KEY`. Never hardcode these elsewhere.
-- `vite.config.ts`: plugin replaces `{{TOKEN}}` placeholders in `index.html` from `config.ts` (BRAND_NAME, TUTOR_NAME, EMAIL, TEL, TEL_HREF, TEL_2, TEL_2_HREF, WEB_LINK, WHATSAPP_LINK). New config values used in HTML need a token added there.
+- `config.ts`: single source for `WHATSAPP_GROUP_LINK`, `WEB_LINK`, `TUTOR_NAME`, `EMAIL`, `TEL`, `TEL_2`, `INSTAGRAM_LINK`, `BRAND_NAME`, `WEB3FORM_KEY`. Never hardcode these elsewhere.
+- `vite.config.ts`: plugin replaces `{{TOKEN}}` placeholders in `index.html` from `config.ts` (BRAND_NAME, TUTOR_NAME, EMAIL, TEL, TEL_HREF, TEL_2, TEL_2_HREF, WEB_LINK, WHATSAPP_LINK, INSTAGRAM_LINK). New config values used in HTML need a token added there.
 - `index.html`: all markup, including the SVG icon sprite and card illustrations.
 - `src/main.ts` wires `reveal.ts` (scroll reveals), `nav.ts` (header state, mobile menu, active link), `video.ts` (intro video), `form.ts` (registration).
 - `src/styles/`: `base.css` (tokens, buttons, header, footer), `sections.css`, `form.css`, `motion.css`.
@@ -47,25 +47,26 @@ One-page static promo site for a free online business community (property and on
 
 ## Page structure
 1. Header: logo, nav (What You'll Learn, Why Join, How It Works, Your Host), "Join Free" button to `#join`.
-2. Hero: "LEARN. BUILD. MONETISE." with host photo in an arch, primary CTA to `#join`, plain link to WhatsApp.
+2. Hero: "LEARN. BUILD. MONETISE." with host photo in an arch, single CTA to `#join`. No WhatsApp link here, WhatsApp is gated (see below).
 3. `#learn`: four photo cards (Airbnb Rent-to-Rent, eBay Dropshipping, TikTok Marketing, Affiliate Marketing) with animated SVG badges.
 4. `#paths`: two large photo panels, Property Investment and Online Business & E-commerce, listing everything from the webinar brief.
 5. `#why`: dark section, five reasons (training, resources, community, beginner-friendly, practical strategies) plus a street photo.
 6. `#how`: Register, Answer a few questions, Join WhatsApp, with a drawn connector.
-7. `#host`: `TUTOR_NAME`, second photo, intro video.
-8. `#join`: registration form.
-9. Final CTA over the skyline photo.
-10. Footer: logo, email, both phone numbers, links, privacy notice and disclaimer (details elements), Pexels credit.
+7. `#host`: `TUTOR_NAME`, second photo, intro video, real credentials list (law degree, Barrister/Solicitor, property portfolio, digital marketing and student results), Instagram link.
+8. `#proof`: four real member testimonials (name + last initial, quote, which model they used), pulled from client-supplied screenshots of the community Facebook group. Includes a "results vary" note under the grid.
+9. `#join`: registration form.
+10. Final CTA over the skyline photo, single button to `#join`.
+11. Footer: logo, email, both phone numbers, Instagram, links, privacy notice and disclaimer (details elements), Pexels credit.
 
-## WhatsApp is not gated
-The invite link is available without the form: hero text link, "skip the form" link beside the form, final CTA button, and the form's error fallback. The form is for lead capture, not access control.
+## WhatsApp is gated
+The invite link only appears in the form's step 3 success state, after Web3Forms confirms the submission. It is not available anywhere else on the page (no hero link, no "skip the form" link, no final CTA button, no error-state fallback, no noscript link). The form is the only way in; if it fails, the user retries the form rather than being handed the link.
 
 ## Registration form
 Posts JSON from the browser to `https://api.web3forms.com/submit` with `WEB3FORM_KEY`. No backend. Has a `botcheck` honeypot, subject, from_name and a consent checkbox linking to the privacy notice.
 - Step 1: Name, Email, WhatsApp Number (country code required), Location.
 - Step 2: three radio-card questions (interest, experience, main goal) plus consent. Q1 and Q2 double as the client's "what they want to learn" and "experience level" fields.
-- Step 3 (after Web3Forms returns success): "You're all set!" and a "Join the WhatsApp Community" button.
-- On failure or timeout (15s): inline notice with a WhatsApp button, answers kept, Submit still available for retry.
+- Step 3 (after Web3Forms returns success): "You're all set!" and a "Join the WhatsApp Community" button. This is the only place the WhatsApp link appears.
+- On failure or timeout (15s): inline notice, no WhatsApp fallback, answers kept, Submit still available for retry.
 - Test with Playwright route-mocking of `api.web3forms.com`; never submit real data while testing.
 
 ## Animation
@@ -82,6 +83,5 @@ Playwright with system Chrome (`channel: "chrome"`); bundled Chromium does not r
 ## Open items (need client input)
 - Confirm the privacy notice and disclaimer wording (drafted, not legally reviewed).
 - Webinar date and time, if the page should mention the webinar. The intro video refers to "my free webinar".
-- Social links, if wanted.
 - SVG version of the logo.
 - Domain: `https://legacywealthacademy.online` is used for canonical and share tags.

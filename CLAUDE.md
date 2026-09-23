@@ -35,7 +35,7 @@ One-page static promo site for a free online business community (property and on
 ## Assets
 - Host photos: watermark cropped out (bottom 120px removed). `host.webp` is the hero, `host-2.webp` is the host section.
 - Logo: tagline changed from PROPERTY to ACADEMY (Josefin Sans Light, sampled gold, same width). Raster 600x174, dark purple text, so only use on light backgrounds. An SVG would be better.
-- `public/intro.mp4`: 51s portrait, has burned-in captions and a black end frame. It talks about the webinar. Poster is the frame at 0.9s (`intro-poster.webp`). Never autoplay.
+- `public/intro.mp4`: portrait, ~74s. Source footage (~70s, client-provided, has its own burned-in TikTok-style captions) is bookended with a generated brand bumper (1.3s, logo on plum) and a brand outro card (3s, logo, gold hairline, "Join the Free Community"). Built with ffmpeg-static: `scale=720:1280`, `libx264 -crf 27 -preset slow`, `+faststart`; bumper/outro text rendered via a throwaway Playwright screenshot of styled HTML (site fonts/colours) since the static ffmpeg build has no `drawtext`. Never autoplay. Poster is a frame from partway through the source content (`intro-poster.webp`, picked for a clean smile with minimal caption overlap) &mdash; re-pick it if the source video changes again, since the bumper shifts the timeline.
 - Stock photos are from Pexels (free commercial use, no attribution required). IDs: keys 29871187, parcel 7857523, creator 7480532, laptop 7552568, property 20703514, workspace 4240505, street 35402056, skyline 2561281.
 - No ffmpeg on this machine by default. `npm i ffmpeg-static` in a scratch folder works.
 
@@ -47,16 +47,17 @@ One-page static promo site for a free online business community (property and on
 
 ## Page structure
 1. Header: logo, nav (What You'll Learn, Why Join, How It Works, Your Host), "Join Free" button to `#join`.
-2. Hero: "LEARN. BUILD. MONETISE." with host photo in an arch, single CTA to `#join`. No WhatsApp link here, WhatsApp is gated (see below).
-3. `#learn`: four photo cards (Airbnb Rent-to-Rent, eBay Dropshipping, TikTok Marketing, Affiliate Marketing) with animated SVG badges.
-4. `#paths`: two large photo panels, Property Investment and Online Business & E-commerce, listing everything from the webinar brief.
-5. `#why`: dark section, five reasons (training, resources, community, beginner-friendly, practical strategies) plus a street photo.
-6. `#how`: Register, Answer a few questions, Join WhatsApp, with a drawn connector.
-7. `#host`: `TUTOR_NAME`, second photo, intro video, real credentials list (law degree, Barrister/Solicitor, property portfolio, digital marketing and student results), Instagram link.
-8. `#proof`: four real member testimonials (name + last initial, quote, which model they used), pulled from client-supplied screenshots of the community Facebook group. Includes a "results vary" note under the grid.
-9. `#join`: registration form.
-10. Final CTA over the skyline photo, single button to `#join`.
-11. Footer: logo, email, both phone numbers, Instagram, links, privacy notice and disclaimer (details elements), Pexels credit.
+2. Hero: "EXPLORE. BUILD. GROW." (all three lines uppercase — the gold italic line inherits `.hero__title`'s uppercase; it has its own taller `line-height` since uppercase italic caps in Cormorant Garamond clip against the tight reveal-animation `overflow:hidden` box that the mixed-case original fit inside) with host photo in an arch, single CTA to `#join`, a stats row (10+ Properties, 800+ Students, £100K+ Generated). No WhatsApp link here, WhatsApp is gated (see below). Vertical spacing is tuned so the stats row stays above the fold on a ~800px-tall desktop viewport. On mobile the whole copy block (eyebrow, headline, lead, button, stats) is centred, not left-aligned, to balance against the centred portrait below it.
+3. `#watch`: intro video moved here, right after the hero, paired with a short "watch first" text (was previously buried in `#host`, which felt too far down and overloaded that section).
+4. `#learn`: four photo cards (Airbnb Rent-to-Rent, eBay Dropshipping, TikTok Marketing, Affiliate Marketing) with animated SVG badges.
+5. `#paths`: two large photo panels, Property Investment and Online Business & E-commerce, listing everything from the webinar brief.
+6. `#why`: dark section, five reasons (training, resources, community, beginner-friendly, practical strategies) plus a street photo.
+7. `#how`: Register, Answer a few questions, Join WhatsApp, with a drawn connector.
+8. `#host`: `TUTOR_NAME`, photo, real credentials list (law degree, Barrister/Solicitor, property portfolio, digital marketing and student results), Instagram link. Two-column layout now (photo + copy) since the video moved to `#watch`.
+9. `#proof`: four real member testimonials (name + last initial, quote, which model they used), pulled from client-supplied screenshots of the community Facebook group. Includes a "results vary" note under the grid.
+10. `#join`: registration form.
+11. Final CTA over the skyline photo, single button to `#join`.
+12. Footer: logo, email, both phone numbers, Instagram, links, privacy notice and disclaimer (details elements), Pexels credit.
 
 ## WhatsApp is gated
 The invite link only appears in the form's step 3 success state, after Web3Forms confirms the submission. It is not available anywhere else on the page (no hero link, no "skip the form" link, no final CTA button, no error-state fallback, no noscript link). The form is the only way in; if it fails, the user retries the form rather than being handed the link.

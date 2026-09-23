@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="{{BRAND_NAME}}" />
     <meta
       property="og:title"
-      content="Learn. Build. Monetise. | {{BRAND_NAME}}"
+      content="Explore. Build. Grow. | {{BRAND_NAME}}"
     />
     <meta
       property="og:description"
@@ -129,6 +129,10 @@
           <circle cx="12" cy="12" r="4.2" />
           <circle cx="17.3" cy="6.7" r="0.4" stroke-width="2.4" />
         </symbol>
+        <symbol id="i-chart-up" viewBox="0 0 28 28">
+          <path d="M3 20 10 13l5 5 10-11" />
+          <path d="M19 7h6v6" />
+        </symbol>
         <symbol id="i-quote" viewBox="0 0 32 24">
           <path
             d="M2 24V15.4C2 8.6 5.9 3.6 12.4 2l1 3.4C9 6.7 7 9.3 6.7 12.6H13V24z"
@@ -179,17 +183,16 @@
             <p class="eyebrow" data-reveal="up">
               Free online business community
             </p>
-            <h1 class="hero__title" aria-label="Learn. Build. Monetise.">
-              <span class="line" aria-hidden="true"><span>Learn.</span></span>
+            <h1 class="hero__title" aria-label="Explore. Build. Grow.">
+              <span class="line" aria-hidden="true"><span>Explore.</span></span>
               <span class="line" aria-hidden="true"><span>Build.</span></span>
               <span class="line line--gold" aria-hidden="true"
-                ><span>Monetise.</span></span
+                ><span>Grow.</span></span
               >
             </h1>
             <p class="hero__lead" data-reveal="up" style="--d: 0.55s">
-              Property and online business, explained clearly. Join a free
-              community for people who want more than one income and aren't sure
-              which route to try first.
+              Explore property and online business models, including Airbnb
+              Rent-to-Rent, Landlord Partnerships, eBay and Affiliate Marketing.
             </p>
             <div class="hero__cta" data-reveal="up" style="--d: 0.7s">
               <a class="btn" href="#join">
@@ -199,10 +202,34 @@
                 </svg>
               </a>
             </div>
-            <ul class="hero__facts" data-reveal="up" style="--d: 0.85s">
-              <li>Free to join</li>
-              <li>Beginner friendly</li>
-              <li>Property &amp; online business</li>
+            <ul class="hero__stats" data-reveal="up" style="--d: 0.85s">
+              <li>
+                <svg class="ico" width="22" height="22" aria-hidden="true">
+                  <use href="#i-house" />
+                </svg>
+                <div>
+                  <strong>10+</strong>
+                  <span>Properties</span>
+                </div>
+              </li>
+              <li>
+                <svg class="ico" width="22" height="22" aria-hidden="true">
+                  <use href="#i-community" />
+                </svg>
+                <div>
+                  <strong>800+</strong>
+                  <span>Students</span>
+                </div>
+              </li>
+              <li>
+                <svg class="ico" width="22" height="22" aria-hidden="true">
+                  <use href="#i-chart-up" />
+                </svg>
+                <div>
+                  <strong>&pound;100K+</strong>
+                  <span>Generated</span>
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -249,6 +276,54 @@
             style="--i: 12"
           />
         </svg>
+      </section>
+
+      <section class="section section--paper" id="watch">
+        <div class="wrap watch">
+          <div class="watch__copy">
+            <p class="label" data-reveal="up">Watch first</p>
+            <h2 data-reveal="up" style="--d: 0.08s">
+              A 60-second introduction from {{TUTOR_NAME}}
+            </h2>
+            <p class="section__intro" data-reveal="up" style="--d: 0.16s">
+              Before you scroll any further, hear directly who this is for and
+              what you'll get from the free community.
+            </p>
+          </div>
+
+          <figure class="watch__video" data-reveal="up" style="--d: 0.2s">
+            <div class="video" id="video">
+              <video
+                id="introVideo"
+                preload="none"
+                playsinline
+                poster="/img/intro-poster.webp"
+                width="576"
+                height="1024"
+              >
+                <source src="/intro.mp4" type="video/mp4" />
+              </video>
+              <button
+                class="video__play"
+                id="videoPlay"
+                type="button"
+                aria-label="Play introduction video"
+              >
+                <span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="26"
+                    height="26"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <figcaption>Introduction video</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section" id="learn">
@@ -725,8 +800,7 @@
               You don't need savings or a property of your own to start. Many
               members begin with a landlord partnership instead of a deposit,
               learn how Serviced Accommodation works without taking on a
-              traditional rental, and build something new alongside a
-              9&ndash;5.
+              traditional rental, and build something new alongside a 9&ndash;5.
             </p>
             <ul class="host__credentials" data-reveal="up" style="--d: 0.22s">
               <li>
@@ -750,14 +824,10 @@
             <p data-reveal="up" style="--d: 0.28s">
               {{TUTOR_NAME}} works a 36-hour care contract alongside all of
               this. She built her property business, then her online income
-              streams, around a full-time job rather than instead of one,
-              which is exactly why this community exists.
+              streams, around a full-time job rather than instead of one, which
+              is exactly why this community exists.
             </p>
-            <p data-reveal="up" style="--d: 0.32s">
-              Watch the short introduction to hear it directly, then join the
-              community below.
-            </p>
-            <div class="host__links" data-reveal="up" style="--d: 0.36s">
+            <div class="host__links" data-reveal="up" style="--d: 0.32s">
               <a class="textlink textlink--dark" href="#join">
                 Join the community
                 <svg class="ico" width="16" height="16" aria-hidden="true">
@@ -777,39 +847,6 @@
               </a>
             </div>
           </div>
-
-          <figure class="host__video" data-reveal="up" style="--d: 0.2s">
-            <div class="video" id="video">
-              <video
-                id="introVideo"
-                preload="none"
-                playsinline
-                poster="/img/intro-poster.webp"
-                width="576"
-                height="1024"
-              >
-                <source src="/intro.mp4" type="video/mp4" />
-              </video>
-              <button
-                class="video__play"
-                id="videoPlay"
-                type="button"
-                aria-label="Play introduction video"
-              >
-                <span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <figcaption>Introduction video</figcaption>
-          </figure>
         </div>
       </section>
 
@@ -829,15 +866,19 @@
 
           <div class="quotes">
             <figure class="quote" data-reveal="up">
-              <svg class="quote__mark ico" width="30" height="22" aria-hidden="true">
+              <svg
+                class="quote__mark ico"
+                width="30"
+                height="22"
+                aria-hidden="true"
+              >
                 <use href="#i-quote" />
               </svg>
               <blockquote>
                 I met Victory on TikTok and started with affiliate marketing.
-                She didn't just teach, she held my hand, called to check in,
-                and encouraged a group of us to go into the rent-to-rent
-                property business together. Our company is now officially
-                registered.
+                She didn't just teach, she held my hand, called to check in, and
+                encouraged a group of us to go into the rent-to-rent property
+                business together. Our company is now officially registered.
               </blockquote>
               <figcaption>
                 <strong>Evelyn T.</strong>
@@ -846,14 +887,19 @@
             </figure>
 
             <figure class="quote" data-reveal="up" style="--d: 0.1s">
-              <svg class="quote__mark ico" width="30" height="22" aria-hidden="true">
+              <svg
+                class="quote__mark ico"
+                width="30"
+                height="22"
+                aria-hidden="true"
+              >
                 <use href="#i-quote" />
               </svg>
               <blockquote>
-                My eBay journey is progressing: &pound;28,773 in
-                year-to-date sales, over 1,100 orders and 124 active
-                listings. It hasn't happened overnight, just consistent
-                listing, learning and improving.
+                My eBay journey is progressing: &pound;28,773 in year-to-date
+                sales, over 1,100 orders and 124 active listings. It hasn't
+                happened overnight, just consistent listing, learning and
+                improving.
               </blockquote>
               <figcaption>
                 <strong>Blessing O.</strong>
@@ -862,14 +908,18 @@
             </figure>
 
             <figure class="quote" data-reveal="up" style="--d: 0.2s">
-              <svg class="quote__mark ico" width="30" height="22" aria-hidden="true">
+              <svg
+                class="quote__mark ico"
+                width="30"
+                height="22"
+                aria-hidden="true"
+              >
                 <use href="#i-quote" />
               </svg>
               <blockquote>
                 I joined with only 320 followers on TikTok and had never made
                 money online. Victory pointed me to the affiliate marketing
-                module even without a big following, and I took the first
-                step.
+                module even without a big following, and I took the first step.
               </blockquote>
               <figcaption>
                 <strong>Charity A.</strong>
@@ -878,13 +928,18 @@
             </figure>
 
             <figure class="quote" data-reveal="up" style="--d: 0.3s">
-              <svg class="quote__mark ico" width="30" height="22" aria-hidden="true">
+              <svg
+                class="quote__mark ico"
+                width="30"
+                height="22"
+                aria-hidden="true"
+              >
                 <use href="#i-quote" />
               </svg>
               <blockquote>
                 I'd tried TikTok affiliate marketing before and couldn't stay
-                consistent. I met Victory on a TikTok live, gave it another
-                go, and this time it worked.
+                consistent. I met Victory on a TikTok live, gave it another go,
+                and this time it worked.
               </blockquote>
               <figcaption>
                 <strong>Lovelyn O.</strong>
@@ -1221,8 +1276,7 @@
                 <div class="form__alert" id="formAlert" role="alert" hidden>
                   <p>
                     <strong>We couldn't save your answers just now.</strong>
-                    That's on our side, not yours. Please try submitting
-                    again.
+                    That's on our side, not yours. Please try submitting again.
                   </p>
                 </div>
 
@@ -1272,8 +1326,8 @@
             </form>
             <noscript>
               <p class="noscript">
-                This form needs JavaScript to work. Please enable
-                JavaScript, or email <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+                This form needs JavaScript to work. Please enable JavaScript, or
+                email <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
                 to join instead.
               </p>
             </noscript>
@@ -1294,7 +1348,7 @@
         </div>
         <div class="wrap final__inner">
           <p class="label label--gold label--center" data-reveal="up">
-            Learn. Build. Monetise.
+            Explore. Build. Grow.
           </p>
           <h2 data-reveal="up" style="--d: 0.08s">Join the Free Community</h2>
           <p data-reveal="up" style="--d: 0.16s">

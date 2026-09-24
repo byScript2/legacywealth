@@ -51,6 +51,15 @@
   opacity: 1;
 }
 
+.js .hero__portrait.is-in > .hero__caption {
+  transition: opacity 0.3s var(--ease);
+}
+
+.js .hero__portrait.is-in.is-playing > .hero__caption {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .js .line > span {
   transform: translateY(112%);
 }
@@ -93,6 +102,10 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .js .hero__portrait.is-in.is-playing > .hero__caption {
+    transition: none;
   }
 
   .js [data-reveal="up"],

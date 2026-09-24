@@ -12,6 +12,8 @@ const tokens: Record<string, string> = {
   WEB_LINK: cfg.WEB_LINK,
   WHATSAPP_LINK: cfg.WHATSAPP_GROUP_LINK.replace(/&/g, "&amp;"),
   INSTAGRAM_LINK: cfg.INSTAGRAM_LINK,
+  INTRO_SRC: `/intro.mp4?v=${cfg.VIDEO_VERSION}`,
+  POSTER_SRC: `/img/intro-poster.webp?v=${cfg.VIDEO_VERSION}`,
 };
 
 const injectConfig = (): Plugin => ({

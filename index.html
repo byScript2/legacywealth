@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en-GB">
   <head>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NHN56NNS");
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
@@ -43,6 +55,14 @@
     </script>
   </head>
   <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NHN56NNS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <svg
       width="0"
       height="0"
@@ -236,13 +256,35 @@
           <figure class="hero__portrait" data-reveal="mask" style="--d: 0.25s">
             <div class="arch arch--outline" aria-hidden="true"></div>
             <div class="arch arch--photo">
-              <img
-                src="/img/host.webp"
-                width="1024"
-                height="1160"
-                alt="{{TUTOR_NAME}}, host of the {{BRAND_NAME}} community, smiling with arms folded"
-                fetchpriority="high"
-              />
+              <div class="video" id="video">
+                <video
+                  id="introVideo"
+                  preload="none"
+                  playsinline
+                  poster="{{POSTER_SRC}}"
+                  width="576"
+                  height="1024"
+                >
+                  <source src="{{INTRO_SRC}}" type="video/mp4" />
+                </video>
+                <button
+                  class="video__play"
+                  id="videoPlay"
+                  type="button"
+                  aria-label="Play introduction video"
+                >
+                  <span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="26"
+                      height="26"
+                      aria-hidden="true"
+                    >
+                      <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
             <figcaption class="hero__caption">
               <span>Your host</span>
@@ -276,54 +318,6 @@
             style="--i: 12"
           />
         </svg>
-      </section>
-
-      <section class="section section--paper" id="watch">
-        <div class="wrap watch">
-          <div class="watch__copy">
-            <p class="label" data-reveal="up">Watch first</p>
-            <h2 data-reveal="up" style="--d: 0.08s">
-              A 60-second introduction from {{TUTOR_NAME}}
-            </h2>
-            <p class="section__intro" data-reveal="up" style="--d: 0.16s">
-              Before you scroll any further, hear directly who this is for and
-              what you'll get from the free community.
-            </p>
-          </div>
-
-          <figure class="watch__video" data-reveal="up" style="--d: 0.2s">
-            <div class="video" id="video">
-              <video
-                id="introVideo"
-                preload="none"
-                playsinline
-                poster="/img/intro-poster.webp"
-                width="576"
-                height="1024"
-              >
-                <source src="/intro.mp4" type="video/mp4" />
-              </video>
-              <button
-                class="video__play"
-                id="videoPlay"
-                type="button"
-                aria-label="Play introduction video"
-              >
-                <span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <figcaption>Introduction video</figcaption>
-          </figure>
-        </div>
       </section>
 
       <section class="section" id="learn">
@@ -784,12 +778,12 @@
         <div class="wrap host">
           <figure class="host__photo" data-reveal="mask">
             <img
-              src="/img/host-2.webp"
+              src="/img/host.webp"
               width="1024"
               height="1160"
               loading="lazy"
               decoding="async"
-              alt="{{TUTOR_NAME}} in a black pleated outfit against a slate backdrop"
+              alt="{{TUTOR_NAME}}, host of the {{BRAND_NAME}} community, smiling with arms folded"
             />
           </figure>
 

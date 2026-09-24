@@ -4,6 +4,8 @@ export function initVideo(): void {
   const button = document.getElementById("videoPlay");
   if (!wrapper || !video || !button) return;
 
+  const portrait = wrapper.closest<HTMLElement>(".hero__portrait");
+
   button.addEventListener("click", () => {
     video.controls = true;
     wrapper.classList.add("is-playing");
@@ -13,9 +15,18 @@ export function initVideo(): void {
     });
   });
 
+  video.addEventListener("play", () => {
+    portrait?.classList.add("is-playing");
+  });
+
+  video.addEventListener("pause", () => {
+    portrait?.classList.remove("is-playing");
+  });
+
   video.addEventListener("ended", () => {
     video.controls = false;
     wrapper.classList.remove("is-playing");
+    portrait?.classList.remove("is-playing");
     video.currentTime = 0;
   });
 }

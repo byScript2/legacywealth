@@ -8,3 +8,4 @@ export const TEL_2 = "+44 7443 012033";
 export const INSTAGRAM_LINK = "https://www.instagram.com/victorysmithevents";
 export const BRAND_NAME = "Legacy Wealth Academy";
 export const WEB3FORM_KEY = "f9908646-4062-40cf-9596-aa4c00b128bb";
+export const VIDEO_VERSION = "2";

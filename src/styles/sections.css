@@ -842,6 +842,25 @@
   color: var(--gold-bright);
 }
 
+.join__skip {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(251, 248, 243, 0.18);
+  font-size: 0.92rem;
+}
+
+.join__skip a {
+  margin-left: 4px;
+  border-bottom: 1px solid var(--gold-bright);
+  font-weight: 600;
+  color: var(--ivory);
+  transition: color 0.25s var(--ease);
+}
+
+.join__skip a:hover {
+  color: var(--gold-bright);
+}
+
 .quotes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -12,7 +12,7 @@ One-page static promo site for a free online business community (property and on
 - Must not read as AI-generated. Editorial, hand-crafted, specific to this brand.
 - UK audience: British English (monetise, programme), GBP, `lang="en-GB"`.
 - No invented facts: no fake testimonials, member counts, income figures or dates. Real testimonials and the host's own credentials/income figures are fine once the client supplies them, but nothing is invented on our side.
-- No income guarantees. Disclaimer stays in the footer.
+- No income guarantees. Google Ads disapproved the page (Oct 2026) for unqualified financial claims, so every income or sales figure carries a `.claim-note` ("Individual results are not typical and are not guaranteed.") directly beside it: hero stats, the two `#host` credentials, the eBay testimonial. Any new figure needs one too. The footer disclaimer is always visible (a plain `div.legal`, not a `details`); only the privacy notice is collapsible.
 - Brand name is "Legacy Wealth Academy" everywhere. Never mention "Legacy Wealth Property" or a parent company on the site (background context only; the logo was edited to say ACADEMY).
 - Full UX by default: validation, loading, error and success states, keyboard and screen-reader support, mobile first.
 
@@ -64,10 +64,10 @@ Google Tag Manager `GTM-NHN56NNS` is installed: the loader script is the first t
 5. `#why`: dark section, five reasons (training, resources, community, beginner-friendly, practical strategies) plus a street photo.
 6. `#how`: Register, Answer a few questions, Join WhatsApp, with a drawn connector.
 7. `#host`: `TUTOR_NAME`, `host.webp` photo, real credentials list (law degree, Barrister/Solicitor, property portfolio, digital marketing and student results), Instagram link. Two-column layout (photo + copy) since the video lives in the hero, not here.
-8. `#proof`: four real member testimonials (name + last initial, quote, which model they used), pulled from client-supplied screenshots of the community Facebook group. Includes a "results vary" note under the grid.
+8. `#proof`: four real member testimonials (name + last initial, quote, which model they used), pulled from client-supplied screenshots of the community Facebook group. Includes a boxed "not typical, not guaranteed" note under the grid (`.quotes__note`).
 9. `#join`: registration form.
 10. Final CTA over the skyline photo, button to `#join` and a WhatsApp button.
-11. Footer: logo, email, both phone numbers, Instagram, links, privacy notice and disclaimer (details elements), Pexels credit.
+11. Footer: logo, email, both phone numbers, Instagram, links, privacy notice (details element), disclaimer (always open), Pexels credit.
 
 ## WhatsApp access
 

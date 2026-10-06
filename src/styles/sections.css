@@ -112,6 +112,11 @@
   color: var(--muted);
 }
 
+.hero__note {
+  max-width: 520px;
+  margin-top: 12px;
+}
+
 .hero__portrait {
   position: relative;
   width: 100%;
@@ -880,6 +885,10 @@
   margin-bottom: 18px;
 }
 
+.quote .claim-note {
+  margin: -10px 0 22px;
+}
+
 .quote blockquote {
   margin: 0 0 22px;
   font-size: 1.05rem;
@@ -909,10 +918,14 @@
 }
 
 .quotes__note {
-  margin-top: 32px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  text-align: center;
+  max-width: 720px;
+  margin: 32px auto 0;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  background: var(--paper);
+  font-size: 0.95rem;
+  color: var(--text);
 }
 
 .final {
@@ -1009,7 +1022,8 @@
     justify-content: center;
   }
 
-  .hero__stats {
+  .hero__stats,
+  .hero__note {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
